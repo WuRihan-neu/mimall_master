@@ -7,12 +7,28 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import jsonp from 'jsonp'
+// import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
-  }
+  },
+  data(){
+    return{
+      data: ''
+    }
+  },
+  mounted() {
+    let url = 'https://www.imooc.com/u/card%20?jsonp'
+    jsonp(url, (err, res) => {
+       let result = res
+       this.data = result
+    })
+    // axios.get(url).then(() => {})
+  },
+ 
 }
 </script>
 
