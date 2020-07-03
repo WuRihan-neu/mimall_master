@@ -1,15 +1,10 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import jsonp from 'jsonp'
-// import axios from 'axios'
-
 export default {
   name: 'App',
   components: {
@@ -17,16 +12,10 @@ export default {
   },
   data(){
     return{
-      data: ''
     }
   },
   mounted() {
-    let url = '/api/u/card%20?jsonp'
-    jsonp(url, (err, res) => {
-       let result = res
-       this.data = result
-    })
-    // axios.get(url).then(() => {})
+    
   }, 
  
 }
