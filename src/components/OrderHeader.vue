@@ -1,14 +1,10 @@
 <template>
-  <div>index
-  </div>
+  <div>order-header</div>
 </template>
 
 <script>
 export default {
-    name: 'index',
-    components:{
-       
-    }
+   name: 'order-header'
 
 }
 </script>
