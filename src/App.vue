@@ -21,13 +21,13 @@ export default {
     }
   },
   mounted() {
-    let url = 'https://www.imooc.com/u/card%20?jsonp'
+    let url = '/api/u/card%20?jsonp'
     jsonp(url, (err, res) => {
        let result = res
        this.data = result
     })
     // axios.get(url).then(() => {})
-  },
+  }, 
  
 }
 </script>
