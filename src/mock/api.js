@@ -1,4 +1,4 @@
-import Mock from 'mockjs' //引入mockjs插件
+/* import Mock from 'mockjs' //引入mockjs插件
 Mock.mock('/api/user/login', {
     "status": 0,
     "data": {
@@ -10,4 +10,4 @@ Mock.mock('/api/user/login', {
         "createTime": 1479048325000,
         "updateTime": 1479048325000
     }
-})
+}) */

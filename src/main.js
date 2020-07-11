@@ -5,18 +5,20 @@ import VueAxios from 'vue-axios' //可以将axios实例挂载，否则在组件�
 import App from './App.vue'
 // import env from './env'
 
-const mock = true //mock的开关
+const mock = false //mock的开关
 if (mock) {
     require('./mock/api')
 }
 //根据前端的跨域方式做调整 || 下面的使用于接口代理的跨域方式
-axios.defaults.baseURL = '/api'
-    //设置超时时间
+// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5f0432ca0aa1ce4aeb750b0b/api'
+//设置超时时间
 axios.defaults.timeout = 8000
     // 根据环境变量获取不同的请求地址
     // axios.defaults.baseURL = env.baseURL
     // 接口错误拦截
 axios.interceptors.response.use(function(response) {
+    // response是经过axios处理后的返回值
+    // response.data 才是接口的返回值
     let res = response.data
         // 成功的响应   
     if (res.status == 0) {
