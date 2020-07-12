@@ -630,7 +630,9 @@ export default {
                border-top:1px solid $colorH;
                position: absolute;
                top:100px;
-               left: 0;          
+               left: 0;   
+               background-color: #fff;
+               z-index: 99;       
                .children{
                   height: 220px;
                   width: 1226px;                 

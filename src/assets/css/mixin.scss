@@ -3,3 +3,11 @@
     justify-content: $hov;
     align-items: $col;
 }
+
+@mixin bgImg($w, $h, $url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: $w;
+    height: $h;
+}
