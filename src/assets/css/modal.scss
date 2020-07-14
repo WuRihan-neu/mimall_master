@@ -1,0 +1,53 @@
+.modal {
+    z-index: 9999;
+    @include position(fixed);
+    //动画效果
+    transition: all .5s;
+    &.slide-enter-active {
+        top: 0;
+    }
+    &.slide-leave-active {
+        top: -100%;
+    }
+    &.slide-enter {
+        top: -100%;
+    }
+    /* 半透明遮盖层 */
+    .mask {
+        @include position(fixed);
+        background-color: $colorI;
+        opacity: 0.5;
+    }
+    .modal-dialog {
+        /* 模态框一般不在正中间，而是偏上的位置 */
+        @include position(absolute, 50%, 40%, 660px, auto);
+        background-color: $colorG;
+        /* 居中 */
+        transform: translate(-50%, -50%);
+        .modal-header {
+            height: 60px;
+            background-color: $colorJ;
+            line-height: 60px;
+            padding: 0 25px;
+            font-size: $fontI;
+            .icon-close {
+                @include positionImg(absolute, 23px, 25px, 14px, 14px, '/img/icon-close.png');
+                transition: transform 0.3s;
+                &:hover {
+                    transform: scale(1.5);
+                }
+            }
+        }
+        .modal-body {
+            padding: 42px 40px 54px;
+            font-size: 14px;
+        }
+        .modal-footer {
+            font-size: 14px;
+            height: 82px;
+            line-height: 82px;
+            background-color: $colorJ;
+            text-align: center;
+        }
+    }
+}

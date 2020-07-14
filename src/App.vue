@@ -23,7 +23,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import './assets/css/reset.css';
 @import './assets/icon/iconfont.css';
+@import './assets/css/config.scss';
+@import './assets/css/mixin.scss';
+@import './assets/css/button.scss';
 </style>

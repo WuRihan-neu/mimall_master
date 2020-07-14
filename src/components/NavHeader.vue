@@ -107,69 +107,6 @@
           <ul class="nav clearfix">
             <li class="all-goods-wrapper">
               <a href="#" class="all-goods">全部商品分类</a>
-              <!-- 左侧导航条 -->
-              <!-- <ul class="left-nav">
-                <li>
-                  <a href="#">
-                    手机 电话卡
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    电视 盒子
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    笔记本 平板
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    家电 插线板
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    出行 穿戴
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    智能 路由器
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    电源 配件
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    健康 儿童
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    耳机 音箱
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    智能 路由器
-                    <i class="iconfont icon-jiantouarrow487"></i>
-                  </a>
-                </li>
-              </ul> -->
             </li>
             <li class="item-menu">
               <a href="#">小米手机</a>
@@ -179,7 +116,7 @@
                   <li class="product" v-for="(item, index) in phoneList" :key="index">
                     <a :href="'/#/product/'+item.id" target="_blank">
                       <div class="pro_img">
-                        <img :src="item.mainImage">
+                        <img v-lazy="item.mainImage">
                       </div>
                       <div class="pro_name">{{item.name}}</div>
                       <div class="pro_price">{{item.price | currency}}</div>
@@ -594,32 +531,6 @@ export default {
             .all-goods {
               visibility: hidden;
             }
-            .left-nav {
-              width: 234px;
-              background-color: rgba(0, 0, 0, 0.3);
-              position: absolute;
-              left: -120px;
-              z-index: 999;
-              line-height: 1;
-              padding: 20px 0;
-              a {
-                display: block;
-                height: 42px;
-                line-height: 42px;
-                color: #fff;
-                padding: 0 20px 0 30px;
-                font-size: 14px;
-                margin: 0;
-                /*箭头图标向右浮动*/
-                i {
-                  float: right;
-                }
-                &:hover {
-                  color: #fff;
-                  background-color: #ff6700;
-                }
-              }
-            }
           }
           .item-menu{ 
             .children-wrapper{
@@ -627,7 +538,6 @@ export default {
                overflow: hidden;
                transition: all 0.5s;
                width: 100%;
-               border-top:1px solid $colorH;
                position: absolute;
                top:100px;
                left: 0;   
@@ -690,6 +600,8 @@ export default {
                }
             }
             &:hover .children-wrapper{
+               transition: height 0.5s;
+               border-top:1px solid $colorH;
                height: 220px;
                box-shadow: 0px 3px 4px rgba(0, 0, 0, .18);
             }

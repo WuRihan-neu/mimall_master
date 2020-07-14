@@ -1,7 +1,8 @@
-@mixin flex($hov:center, $col:center) {
+@mixin flex($hov:center, $col:center, $dir:row) {
     display: flex;
     justify-content: $hov;
     align-items: $col;
+    flex-direction: $dir;
 }
 
 @mixin bgImg($w, $h, $url) {
@@ -10,4 +11,22 @@
     background-size: contain;
     width: $w;
     height: $h;
+}
+
+@mixin position($pos:absolute, $l:0, $t:0, $w:100%, $h:100%) {
+    position: $pos;
+    left: $l;
+    top: $t;
+    width: $w;
+    height: $h;
+}
+
+@mixin positionImg($pos:absolute, $t:0, $r:0, $w:0, $h:0, $url:'/img/icon-close.png') {
+    position: $pos;
+    top: $t;
+    right: $r;
+    width: $w;
+    height: $h;
+    background: url($url) no-repeat center;
+    background-size: contain;
 }

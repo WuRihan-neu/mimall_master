@@ -43,6 +43,9 @@ export default {
       border-right: 1px solid #E5E5E5;
       line-height: 34px;
       vertical-align: middle;
+      &:last-child{
+          border-right: 1px solid transparent;
+      }
       span{
          position: relative;
          top:4.5px;

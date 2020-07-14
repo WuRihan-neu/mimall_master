@@ -2,6 +2,7 @@ import Vue from 'vue'
 import router from './router';
 import axios from 'axios'
 import VueAxios from 'vue-axios' //可以将axios实例挂载，否则在组件中需要引入axios
+import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 // import env from './env'
 
@@ -30,6 +31,9 @@ axios.interceptors.response.use(function(response) {
     }
 })
 Vue.use(VueAxios, axios)
+Vue.use(VueLazyload, {
+    loading: '/img/loading-svg/loading-bars.svg'
+})
 Vue.config.productionTip = false
 
 new Vue({
