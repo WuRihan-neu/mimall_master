@@ -66,7 +66,7 @@
               <span class="iconfont">&#xe603;</span>
             </li>
             <li>
-              <a href="javascript:;" @click="goToCart">购物车（0）</a>
+              <a href="javascript:;" @click="goToCart">购物车（{{cartCount}}）</a>
             </li>
           </ul>
           <!-- 下拉框 -->
@@ -261,13 +261,25 @@ export default {
   name: "nav-header",
   data(){
     return {
-      username:'',
-      phoneList:[]   
+      /* 由于app.vue发请求需要时间
+      若直接渲染username，在请求没完成时，已经开始渲染了 
+      因此通过 computed 获得username*/
+      // username: this.$store.state.username,
+      phoneList:[],
+      // cartCount: this.$store.state.cartCount 
+    }
+  },
+  computed: {
+    username(){
+      return this.$store.state.username
+    },
+    cartCount(){
+      return this.$store.state.cartCount
     }
   },
   filters:{
     currency(val){
-      if(!val)return '0.00'
+      if (!val) return '0.00'
       return val.toFixed(0) + '元起'
     }
   },

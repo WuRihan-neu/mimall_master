@@ -17,8 +17,21 @@ export default {
     }
   },
   mounted() {
-   
+   this.getUser()
+   this.getCartNum()
   }, 
+  methods: {
+    getUser(){
+       this.axios.get('/api/user').then((res)=>{
+          this.$store.dispatch('saveUserName', res.username)
+       })
+    },
+    getCartNum(){
+       this.axios.get('/api/carts/products/sum').then((res)=>{
+         this.$store.dispatch('saveCartCount', res)
+       })
+    }
+  },
  
 }
 </script>

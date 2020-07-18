@@ -36,9 +36,22 @@ a {
     margin: 0 auto;
 }
 
+.container {
+    width: 1226px;
+    margin: 0 auto;
+    position: relative;
+}
+
 a {
     img {
         height: 100%;
         width: 100%;
     }
+}
+
+input {
+    outline: none;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
 }
