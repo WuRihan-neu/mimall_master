@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <div class="container">
+    <div class="container-index">
       <div class="swiper-box w">
          <!-- 左侧导航条 -->
         <div class="nav-menu">
@@ -116,7 +116,7 @@
                 <div class="item-info">
                   <h3 class="item-title">{{sub.name}}</h3>
                   <p class="item-describe">{{sub.subtitle}}</p>
-                  <p class="item-price">{{sub.price}}元<i class="iconfont"  @click="addCart(item.id)">&#xe603;</i></p>
+                  <p class="item-price">{{sub.price}}元<i class="iconfont"  @click="addCart(sub.id)">&#xe603;</i></p>
                 </div>
               </div>
             </div>
@@ -259,17 +259,18 @@ export default {
          this.phoneList=[res.list.slice(0,4), res.list.slice(4,8)]
         })
       },
-      addCart(){
-        this.showModal = true
+      addCart(id){
         // 登录功能完成后实现
-        /* this.axios.post('/api/carts',{
-          productId:id,  //指定商品id
+        this.axios.post('/api/carts',{
+          productId: id,  //指定商品id
           selected: true // 即加入购物车之后商品默认为选中状态
-        }).then(()=>{
+        }).then((res)=>{
           //暂时没登录无法成功
+           this.showModal = true
+           this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
         }).catch(()=>{
           this.showModal = true
-        }) */
+        })
       },
       goToCart(){
         this.$router.push('/cart')

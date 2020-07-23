@@ -88,12 +88,12 @@ export default {
        ...mapActions(['saveUserName']),
        register(){
             this.axios.post('/api/user/register', {
-                username:'wrh234',
-                password:'wrh123456',
-                email:'wrh234@163.com'
+                username:'xasess',
+                password:'895ewww0ssss',
+                email:'hgqsqewwx5@163.com'
             })
             .then(() => {
-               alert('注册成功')
+                this.$message.success('注册成功')
             })
        }
     },

@@ -487,49 +487,6 @@ export default {
       height: 100px;
       width: 1226px;
       /* logo */
-      .logo {
-        float: left;
-        width: 55px;
-        height: 55px;
-        margin-top: 22.5px;
-        position: relative;
-        overflow: hidden;
-        a {
-          width: 55px;
-          height: 55px;
-          background-color: #ff6700;
-          position: absolute;
-        }
-        .house {
-          float: left;
-          left: -55px;
-          transition: left 0.3s;
-          @include flex();
-          /*logo悬浮效果*/
-          .iconfont {
-            font-size: 36px;
-            color: #fff;
-          }
-        }
-        .mi {
-          float: left;
-          left: 0;
-          transition: left 0.3s;
-          @include flex();
-          .iconfont {
-            font-size: 30px;
-            color: #fff;
-          }
-        }
-        &:hover {
-          .mi {
-            left: 55px;
-          }
-          .house {
-            left: 0;
-          }
-        }
-      }
       /*导航条容器*/
       .nav-wrapper {
         float: left;

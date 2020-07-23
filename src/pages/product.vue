@@ -2,7 +2,7 @@
   <div class="product">
     <product-param :title="product.name">
       <template v-slot:buy>
-         <button class="btn">立即购买</button>
+         <button class="btn" @click="buy">立即购买</button>
       </template>
     </product-param>
     <div class="content">
@@ -55,19 +55,18 @@
          <p>
            后置960帧电影般超慢动作视频，将眨眼间的美妙展现得淋漓尽致！ <br/>更能AI 精准分析视频内容，15个场景智能匹配背景音效。
          </p>
-         <div class="video-bg" @click="showSlide=true">
-          <div class="video-box">
+         <div class="video-bg" @click="showSlide='slideDown'">
+          <div class="video-box" v-show="showSlide">
             <!-- 视频弹框遮罩 -->
-            <div class="overlay" v-if="showSlide"></div>
-            <div class="video" v-bind:class="{'slide': showSlide}">
-              <span class="icon-close" @click.stop="showSlide=false"></span>
+            <div class="overlay" v-if="showSlide=='slideDown'"></div>
+            <div class="video" v-bind:class="showSlide">
+              <span class="icon-close" @click.stop="showSlide='slideUp'"></span>
               <video src="img/product/video.mp4" muted autoplay controls="controls"> 
               </video>
             </div>
           </div>
          </div>
-      </div>
-      
+      </div>    
     </div>
   </div>
 </template>
@@ -81,7 +80,7 @@ export default {
     data(){
       return {
         product:{},
-        showSlide:false,
+        showSlide: '',//控制动画效果
         swiperOption:{
           autoplay:true,
           slidesPerView:3,
@@ -104,6 +103,10 @@ export default {
          this.axios.get(`/api/products/${id}`).then((res)=>{
            this.product = res
          })
+      },
+      buy(){
+        let id = this.$route.params.id
+        this.$router.push(`/detail/${id}`)
       }
     },
     components:{
@@ -211,6 +214,26 @@ export default {
             opacity: .4;
             z-index: 20;
           }
+          @keyframes slideDown {
+             from{
+               top:-50%;
+               opacity: 0;
+             }
+             to{
+               top:50%;
+               opacity: 1;
+             }
+          }
+          @keyframes slideUp {
+             from{
+               top:50%;
+               opacity: 1;
+             }
+             to{
+               top:-50%;
+               opacity: 0;
+             }
+          }
           .video{
             z-index: 99;
             position: fixed;
@@ -219,13 +242,21 @@ export default {
             transform: translate(-50%, -50%);
             width: 1000px;
             height: 536px;
-            opacity: 0;
-            transition: all 0.6s;
-            &.slide{
+            opacity: 1;
+            // transition: all 0.6s;
+            &.slideDown{
+              animation: slideDown 0.6s linear forwards;
+            }
+            &.slideUp{
+              animation: slideUp 0.6s linear;
+              top:-50%;
+              opacity: 0;
+            }
+            /* transition实现动画效果 */
+            /* &.slide{
               top: 50%;
               opacity: 1; 
-              transition: all 0.6s;
-            }
+            } */
             .icon-close{
               position: absolute;
               top: 20px;

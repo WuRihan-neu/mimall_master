@@ -46,3 +46,16 @@
     line-height: 50px;
     font-size: 16px;
 }
+
+.btn-like {
+    width: 142px;
+    height: 54px;
+    background-color: #B0B0B0;
+    line-height: 54px;
+    font-size: 16px;
+    &:hover {
+        background-color: #757575;
+        border-color: #757575;
+        color: #fff;
+    }
+}

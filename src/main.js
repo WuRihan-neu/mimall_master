@@ -3,6 +3,7 @@ import router from './router';
 import axios from 'axios'
 import VueAxios from 'vue-axios' //可以将axios实例挂载，否则在组件中需要引入axios
 import VueLazyload from 'vue-lazyload'
+import { Message } from 'element-ui'
 import VueCookie from 'vue-cookie'
 import App from './App.vue'
 import store from './store'
@@ -32,8 +33,10 @@ axios.interceptors.response.use(function(response) {
             // 防止首页拉取数据的请求导致的自动跳转
             window.location.href = '/#/login' //哈希路由
         }
+        return Promise.reject(res)
     } else {
-        alert(res.msg) //错误信息
+        //alert(res.msg) //错误信息
+        Message.warning(res.msg)
         return Promise.reject(res) // 抛出reject以防止进入成功的情况
     }
 })
@@ -42,6 +45,8 @@ Vue.use(VueCookie)
 Vue.use(VueLazyload, {
     loading: '/img/loading-svg/loading-bars.svg'
 })
+Vue.use('element-ui')
+Vue.prototype.$message = Message
 Vue.config.productionTip = false
 
 new Vue({
