@@ -11,5 +11,6 @@ module.exports = {
                 }
             }
         }
-    }
+    },
+    // lintOnSave:false  //会关闭eslint校验
 }

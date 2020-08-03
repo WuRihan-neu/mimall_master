@@ -1,5 +1,5 @@
 .modal {
-    z-index: 9999;
+    z-index: 999;
     @include position(fixed);
     //动画效果
     transition: all .5s;

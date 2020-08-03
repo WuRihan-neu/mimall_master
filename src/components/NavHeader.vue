@@ -76,15 +76,17 @@
         <ul class="user-info">
           <li>
             <a href="javascript:;" v-if="!username" @click="login">登录</a>
+            <a href="javascript:;" v-if="username" @click="logout">退出</a>
+            <a class="line" v-if="username">|</a>
             <a href="javascript:;" v-if="username">{{username}}</a>
           </li>
            <li class="line" v-if="username">|</li>
           <li>
-            <a href="javascript:;" v-if="username">我的订单</a>
+            <a href="javascript:;" v-if="username" @click="orderList">我的订单</a>
           </li>
           <li class="line">|</li>
           <li>
-            <a href="javascript:;">注册</a>
+            <a href="javascript:;" @click="register">注册</a>
           </li>
         </ul>
       </div>
@@ -285,10 +287,25 @@ export default {
   },
   mounted() {
     this.getProductList()
+    let params = this.$route.params //
+    if(params && params.from == 'login' || params.from == 'cart'){
+      this.getCartNum()
+    }
   },
   methods: {
     login(){
       this.$router.push('/login')
+    },
+    register(){
+      this.$router.push('/register')
+    },
+    orderList(){
+      this.$router.push('/order/list')
+    },
+    getCartNum(){
+       this.axios.get('/api/carts/products/sum').then((res=0)=>{
+         this.$store.dispatch('saveCartCount', res)
+       })
     },
     getProductList(){
       this.axios.get('/api/products', {
@@ -302,6 +319,14 @@ export default {
           // 截取
           this.phoneList = res.list.slice(0, 6) 
         }
+      })
+    },
+    logout(){
+      this.axios.post('/api/user/logout').then(() => {
+          this.$message.success('您已退出登录')
+          this.$cookie.set('userId', '', {expires:"-1"})
+          this.$store.dispatch('saveUserName', '')
+          this.$store.dispatch('saveCartCount', 0)
       })
     },
     goToCart(){

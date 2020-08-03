@@ -9,6 +9,7 @@ import Detail from './pages/detail.vue'
 
 import Cart from './pages/cart.vue'
 import Login from './pages/login.vue'
+import Register from './pages/register.vue'
 
 import Order from './pages/order.vue'
 import OrderConfirm from './pages/orderConfirm.vue'
@@ -51,9 +52,15 @@ export default new Router({
             component: Login,
         },
         {
+            path: '/register',
+            name: 'register',
+            component: Register,
+        },
+        {
             path: '/order',
             name: 'order',
             component: Order,
+            redirect: '/order/confirm',
             children: [{
                     path: 'confirm',
                     name: 'order-confirm',

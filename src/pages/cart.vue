@@ -35,7 +35,7 @@
                     <a href="javascript:;"  @click="updateCart(item, '+')">+</a>
                   </div>
                 </div>
-                <div class="item-total">{{item.productTotalPrice}}</div>
+                <div class="item-total">{{item.productTotalPrice}}元</div>
                 <div class="item-del" @click="showModal=true"></div>
                 <modal title="友情提示"
                   sureText="确认"

@@ -3,11 +3,14 @@
     <div class="login-header w">
         <div class="logo-container">
             <div class="logo-wrap">
-                <div class="logo">
+                <h1 class="logo">
+                    <a href="/#/index" class="house">
+                        <span class="iconfont">&#xe69b;</span>
+                    </a>
                     <a href="/#/index" class="mi">
                         <span class="iconfont">&#xecbf;</span>
                     </a>
-                </div>
+                </h1>
                 <h2>小米商城</h2>
                 <i>让每个人都能享受到科技的乐趣</i>
             </div>
@@ -34,10 +37,10 @@
                     <div class="tips">
                         <p>
                             <a href="javascript:;">手机短信登录/</a>
-                            <a href="javascript:;" @click="register">注册</a>
+                            <a href="/#/register">注册</a>
                         </p>
                         <p>
-                            <a href="javascript:;">立即注册</a>
+                            <a href="/#/register">立即注册</a>
                             <i class="line">|</i>
                             <a href="javascript:;">忘记密码？</a>
                         </p>
@@ -79,23 +82,18 @@ export default {
                 password
             })
             .then((res) => {
-               this.$cookie.set('userId', res.id, {expires:'1M'})
+               this.$cookie.set('userId', res.id, {expires:'Session'})
                this.saveUserName(res.username)
                // this.$store.dispatch('saveUserName', res.username)
-               this.$router.push('/index')
+               this.$router.push({
+                   name:'index',
+                   params:{
+                       from:'login'
+                   }
+               })
             }) 
        },
        ...mapActions(['saveUserName']),
-       register(){
-            this.axios.post('/api/user/register', {
-                username:'xasess',
-                password:'895ewww0ssss',
-                email:'hgqsqewwx5@163.com'
-            })
-            .then(() => {
-                this.$message.success('注册成功')
-            })
-       }
     },
     component:{
         
@@ -118,20 +116,7 @@ export default {
                 width: 215px;
                 height: 98px;
                 .logo{
-                    position: absolute;
-                    top: 23px;
-                    margin-right: 20px;
-                    width: 53px;
-                    height: 52px;
-                    background-color: $colorA;
-                    text-align: center;
-                    line-height: 52px;
-                    .mi{
-                        color: $colorG;
-                        span{
-                            font-size: 30px;
-                      }
-                    }
+                    margin-top:21.5px;
                 }
                 h2{
                     width:134px;

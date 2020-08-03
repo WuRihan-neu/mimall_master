@@ -1,7 +1,7 @@
 <template>
   <div class="order-header">
      <div class="wrapper w clearfix">
-        <h1 class="logo fl">
+        <h1 class="logo fl" @click.prevent="goToIndex">
           <a href="/#/index" class="house">
             <span class="iconfont">&#xe69b;</span>
           </a>
@@ -25,6 +25,16 @@ export default {
    name: 'order-header',
    props:{
      title:String,
+   },
+   methods: {
+     goToIndex(){
+       this.$router.push({
+         name:'index',
+         params:{
+           from:'cart'
+         }
+       })
+     }
    },
    computed: {
      ...mapState(['username'])
