@@ -9,6 +9,7 @@ import App from './App.vue'
 import store from './store'
 // import env from './env'
 import './assets/css/element-variables.scss'
+
 const mock = false //mock的开关
 if (mock) {
     require('./mock/api')

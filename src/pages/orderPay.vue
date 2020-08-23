@@ -285,12 +285,12 @@ export default {
           }
         }
         .pay-ali{
-          background:url('/imgs/pay/icon-ali.png') no-repeat center;
+          background:url('/img/pay/icon-ali.png') no-repeat center;
           background-size:103px 38px;
           margin-top:19px;
         }
         .pay-wechat{
-          background:url('/imgs/pay/icon-wechat.png') no-repeat center;
+          background:url('/img/pay/icon-wechat.png') no-repeat center;
           background-size:103px 38px;
         }
       }

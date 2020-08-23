@@ -150,7 +150,7 @@ export default {
     name: 'index',
     data(){
       return {
-         swiperOption:{
+        swiperOption:{
           autoplay:true,
           loop:true,
           effect:'fade',
@@ -180,11 +180,11 @@ export default {
             img:'/img/slider/slide-3.jpg'
           },
           {
-            id:'',
+            id:'42',
             img:'/img/slider/slide-4.jpg'
           },
           {
-            id:'',
+            id:'46',
             img:'/img/slider/slide-5.jpg'
           }
         ],

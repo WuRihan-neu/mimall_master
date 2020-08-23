@@ -76,22 +76,22 @@ export default {
     },
     methods: {
        login(){
-            let {username, password} = this
-            this.axios.post('/api/user/login', {
-                username,
-                password
+        let {username, password} = this
+        this.axios.post('/api/user/login', {
+            username,
+            password
+        })
+        .then((res) => {
+            this.$cookie.set('userId', res.id, {expires:'Session'})
+            this.saveUserName(res.username)
+            // this.$store.dispatch('saveUserName', res.username)
+            this.$router.push({
+                name:'index',
+                params:{
+                    from:'login'
+                }
             })
-            .then((res) => {
-               this.$cookie.set('userId', res.id, {expires:'Session'})
-               this.saveUserName(res.username)
-               // this.$store.dispatch('saveUserName', res.username)
-               this.$router.push({
-                   name:'index',
-                   params:{
-                       from:'login'
-                   }
-               })
-            }) 
+        }) 
        },
        ...mapActions(['saveUserName']),
     },

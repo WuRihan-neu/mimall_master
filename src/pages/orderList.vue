@@ -72,7 +72,7 @@ export default {
     name: 'order-list',
     data(){
       return{
-        initialLoading:true,
+        initialLoading: true,
         list:[], //订单列表
         loading:false, // 加载按钮
         pageSize:10, // 页面数量
@@ -244,6 +244,7 @@ export default {
         .payment{
           margin-right: 44px;
           margin-left: auto;
+          cursor: pointer;
           .icon-down{
             margin-left: 9px;
             display: inline-block;
@@ -271,6 +272,7 @@ export default {
     } 
     .scroll-more{
       text-align: center;
+      margin-bottom: 25px;
     }
   }
 }

@@ -258,7 +258,7 @@ export default {
               flex:1;
               width:14px;
               height:12px;
-              background:url('/imgs/icon-close.png') no-repeat center;
+              background:url('/img/icon-close.png') no-repeat center;
               background-size:contain;
               cursor:pointer;
             }

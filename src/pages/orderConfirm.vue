@@ -56,49 +56,49 @@
             </a>
          </div>
         <modal title="添加收货地址"
-            sureText="确定" 
-            cancelText="取消"
-            btnType="3"
-            modalType="form" 
-            v-bind:showModal='showaddModel'
-            @submit="submitAddress"
-            @cancel="showaddModel=false"
-            >
-            <template v-slot:body>
-              <div class="address-form">
-                <div class="item">
-                  <input type="text" class="input" v-model="checkedItem.receiverName" placeholder="姓名">
-                  <input type="text" class="input" v-model="checkedItem.receiverMobile" placeholder="手机号"> 
-                </div>
-                <div class="item">
-                  <select name="province" v-model="checkedItem.receiverProvince">
-                    <option value="北京" selected>北京</option>
-                    <option value="天津">天津</option>
-                    <option value="河北">河北</option>
-                  </select>
-                  <select name="city" v-model="checkedItem.receiverCity">
-                    <option value="北京" selected>北京</option>
-                    <option value="天津">天津</option>
-                    <option value="河北">石家庄</option>
-                  </select>
-                  <select name="district" v-model="checkedItem.receiverDistrict">
-                    <option value="北京">昌平区</option>
-                    <option value="天津" selected>海淀区</option>
-                    <option value="河北">东城区</option>
-                    <option value="天津">西城区</option>
-                    <option value="河北">顺义区</option> 
-                    <option value="天津">房山区</option>
-                  </select>
-                </div> 
-                <div class="item">
-                    <textarea name="street" v-model="checkedItem.receiverAddress" placeholder="详细地址"></textarea>
-                </div>
-                <div class="item">
-                  <input type="text" placeholder="邮政编码" v-model="checkedItem.receiverZip" class="receiverZip">
-                </div>
+          sureText="确定" 
+          cancelText="取消"
+          btnType="3"
+          modalType="form" 
+          v-bind:showModal='showaddModel'
+          @submit="submitAddress"
+          @cancel="showaddModel=false"
+          >
+          <template v-slot:body>
+            <div class="address-form">
+              <div class="item">
+                <input type="text" class="input" v-model="checkedItem.receiverName" placeholder="姓名">
+                <input type="text" class="input" v-model="checkedItem.receiverMobile" placeholder="手机号"> 
               </div>
-            </template>
-            </modal>
+              <div class="item">
+                <select name="province" v-model="checkedItem.receiverProvince">
+                  <option value="北京" selected>北京</option>
+                  <option value="天津">天津</option>
+                  <option value="河北">河北</option>
+                </select>
+                <select name="city" v-model="checkedItem.receiverCity">
+                  <option value="北京" selected>北京</option>
+                  <option value="天津">天津</option>
+                  <option value="河北">石家庄</option>
+                </select>
+                <select name="district" v-model="checkedItem.receiverDistrict">
+                  <option value="北京">昌平区</option>
+                  <option value="天津" selected>海淀区</option>
+                  <option value="河北">东城区</option>
+                  <option value="天津">西城区</option>
+                  <option value="河北">顺义区</option> 
+                  <option value="天津">房山区</option>
+                </select>
+              </div> 
+              <div class="item">
+                  <textarea name="street" v-model="checkedItem.receiverAddress" placeholder="详细地址"></textarea>
+              </div>
+              <div class="item">
+                <input type="text" placeholder="邮政编码" v-model="checkedItem.receiverZip" class="receiverZip">
+              </div>
+            </div>
+          </template>
+          </modal>
             <modal title="确认删除"
             sureText="确定" 
             cancelText="取消"

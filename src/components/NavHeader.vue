@@ -49,7 +49,7 @@
             <a href="javascript:;" class="app">下载app</a>
             <!-- 添加下拉层 -->
             <div class="qrcode">
-              <img src="/imgs/qr/qrcode.png" />
+              <img src="/img/qr/qrcode.png" />
               <span>小米商城app</span>
             </div>
           </li>
