@@ -37,7 +37,7 @@
           <div class="payment theme-color" v-else>{{order.statusDesc}}</div>
           </div> 
         </li>
-        <div class="pagination-wrapper" v-if="false">
+        <div class="pagination-wrapper" v-if="true">
           <el-pagination
             background
             class="pagination"
@@ -48,15 +48,15 @@
             :total="total">
           </el-pagination>
         </div>
-        <div class="load-more" v-if="false">
+     <!--    <div class="load-more" v-if="false">
           <el-button type="primary" :loading="loading" @click="loadMore">加载更多</el-button>
-        </div>
-        <div class="scroll-more" 
+        </div> -->
+       <!--  <div class="scroll-more" 
         v-infinite-scroll="scrollMore" 
         infinite-scroll-disabled="busy"
         infinite-scroll-distance="410">
           <img src="/img/loading-svg/loading-spinning-bubbles.svg" alt="" v-show="loading">
-        </div>
+        </div> -->
         <no-data v-if="!initialLoading && list.length == 0"></no-data>
       </ul>   
   </div>
@@ -99,10 +99,11 @@ export default {
             pageNum: this.pageNum
           }
         }).then((res)=>{
-          this.showBtn = true 
+          // this.showBtn = true 
           this.initialLoading = false
           this.busy = false
-          this.list = this.list.concat(res.list)
+          // this.list = this.list.concat(res.list)
+          this.list = res.list
           this.total = res.total
           this.hasNextPage = res.hasNextPage
         }).catch(()=>{

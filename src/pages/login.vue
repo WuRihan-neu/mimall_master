@@ -76,12 +76,15 @@ export default {
     },
     methods: {
        login(){
+        //  解构赋值，
         let {username, password} = this
         this.axios.post('/api/user/login', {
-            username,
+            username, // key/value相同，直接简写
             password
         })
+        
         .then((res) => {
+            // 保证刷新后登陆信息不会丢失，
             this.$cookie.set('userId', res.id, {expires:'Session'})
             this.saveUserName(res.username)
             // this.$store.dispatch('saveUserName', res.username)

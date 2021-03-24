@@ -142,6 +142,7 @@ export default {
         })
       },
       renderCartList(res){
+        // 数据发生了变化，导致data中Object.defineProperty监视时通过setter更新了视图
         this.list = res.cartProductVoList || []
         this.allChecked = res.selectedAll
         this.cartTotalPrice = res.cartTotalPrice

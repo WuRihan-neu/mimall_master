@@ -17,10 +17,10 @@ export default {
     }
   },
   mounted() {
-   if(this.$cookie.get('userId')){
-     this.getUser()
-     this.getCartNum()
-   }
+    if(this.$cookie.get('userId')){
+      this.getUser()
+      this.getCartNum()
+    }
   }, 
   methods: {
     getUser(){
